@@ -39,7 +39,6 @@ const setPriority = () => {
 }
 
 const priorityEvent = (priority) => {
-    console.log(priority)
     if (mode === 'add') {
         addToDo(priority)
         document.getElementById('add-input').value = ''
