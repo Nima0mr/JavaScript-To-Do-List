@@ -1,4 +1,4 @@
-let mode = 'add'
+// let mode = 'add'
 
 const addBtn = () => {
     document.getElementById('add-btn').addEventListener('click', askPriority)
@@ -13,44 +13,44 @@ const addToDo = (priority) => {
         priority: priority
     }
     toDoArray.push(data)
-    renderToDoList()
-    id++
-    saveListOnLocalStorage()
+    // renderToDoList()
+    // id++
+    // saveListOnLocalStorage()
 }
 
 const askPriority = () => {
-    if (mode === 'add' && isAddInputEmpty()) {
-        alert('Please fill your task.')
-        return
-    }
+    // if (mode === 'add' && isAddInputEmpty()) {
+    //     alert('Please fill your task.')
+    //     return
+    // }
     showModal()
 }
 
-const isAddInputEmpty = () => {
-    inputVal = document.getElementById('add-input').value
-    return inputVal.trim() === ''
-}
+// const isAddInputEmpty = () => {
+//     inputVal = document.getElementById('add-input').value
+//     return inputVal.trim() === ''
+// }
 
-const setPriority = () => {
-    setModalTemp('لطفا میزان اولویت را انتخاب کنید.', setPriorityTemplate)
-    document.querySelector('#priority-1').addEventListener('click', () => priorityEvent({id: 1, title: 'High'}))
-    document.querySelector('#priority-2').addEventListener('click', () => priorityEvent({id: 2, title: 'Medium'}))
-    document.querySelector('#priority-3').addEventListener('click', () => priorityEvent({id: 3, title: 'Low'}))
-}
+// const setPriority = () => {
+//     setModalTemp('لطفا میزان اولویت را انتخاب کنید.', setPriorityTemplate)
+//     document.querySelector('#priority-1').addEventListener('click', () => priorityEvent({id: 1, title: 'High'}))
+//     document.querySelector('#priority-2').addEventListener('click', () => priorityEvent({id: 2, title: 'Medium'}))
+//     document.querySelector('#priority-3').addEventListener('click', () => priorityEvent({id: 3, title: 'Low'}))
+// }
 
-const priorityEvent = (priority) => {
-    if (mode === 'add') {
-        addToDo(priority)
-        document.getElementById('add-input').value = ''
-    } else if (mode === 'edit') {
-        toDoArray[toDoArray.findIndex(({id}) => id === selectedId)].priority = priority
-        document.getElementById(`edit-priority-${selectedId}`).classList.remove(`priority-1`)
-        document.getElementById(`edit-priority-${selectedId}`).classList.remove(`priority-2`)
-        document.getElementById(`edit-priority-${selectedId}`).classList.remove(`priority-3`)
-        document.getElementById(`edit-priority-${selectedId}`).classList.add(`priority-${priority.id}`)
-    }
-    endModal()
-}
+// const priorityEvent = (priority) => {
+//     if (mode === 'add') {
+//         addToDo(priority)
+//         document.getElementById('add-input').value = ''
+//     } else if (mode === 'edit') {
+//         toDoArray[toDoArray.findIndex(({id}) => id === selectedId)].priority = priority
+//         document.getElementById(`edit-priority-${selectedId}`).classList.remove(`priority-1`)
+//         document.getElementById(`edit-priority-${selectedId}`).classList.remove(`priority-2`)
+//         document.getElementById(`edit-priority-${selectedId}`).classList.remove(`priority-3`)
+//         document.getElementById(`edit-priority-${selectedId}`).classList.add(`priority-${priority.id}`)
+//     }
+//     endModal()
+// }
 
 const setPriorityTemplate = () => {
     return `<div class="priorities">
@@ -69,28 +69,28 @@ const setPriorityTemplate = () => {
    </div>`
 }
 
-const saveListOnLocalStorage = () => {
-    localStorage.setItem('list', JSON.stringify(toDoArray))
-    localStorage.setItem('id', JSON.stringify(id))
-}
+// const saveListOnLocalStorage = () => {
+//     localStorage.setItem('list', JSON.stringify(toDoArray))
+//     localStorage.setItem('id', JSON.stringify(id))
+// }
 
-const getListOnLocalStorage = () => {
-    let a = localStorage.getItem('list')
-    a = JSON.parse(a)
-    if (a === null) {
-        a = []
-    }
-    return a
-}
+// const getListOnLocalStorage = () => {
+//     let a = localStorage.getItem('list')
+//     a = JSON.parse(a)
+//     if (a === null) {
+//         a = []
+//     }
+//     return a
+// }
 
-const getIdOnLocalStorage = () => {
-    let a = localStorage.getItem('id')
-    a = JSON.parse(a)
-    if (a === null) {
-        a = 1
-    }
-    return a
-}
+// const getIdOnLocalStorage = () => {
+//     let a = localStorage.getItem('id')
+//     a = JSON.parse(a)
+//     if (a === null) {
+//         a = 1
+//     }
+//     return a
+// }
 
 const toDoItemTemplate = (item) => {
     return `<div class="to-do-item" id="item-${item.id}">
@@ -109,95 +109,96 @@ const toDoItemTemplate = (item) => {
     </div>`
 }
 
-const renderToDoList = () => {
-    renderList()
-    renderEvents()
-}
+// const renderToDoList = () => {
+//     renderList()
+//     renderEvents()
+// }
 
-const renderList = () => {
-    document.getElementById('main').innerHTML = ''
-    toDoArray.sort((a,b) => (a.priority.id > b.priority.id) ? 1 : ((b.priority.id > a.priority.id) ? -1 : 0))
-    toDoArray.forEach(item => {
-        document.querySelector('#main').innerHTML += toDoItemTemplate(item)
-    })
-}
+// const renderList = () => {
+//     document.getElementById('main').innerHTML = ''
+//     toDoArray.sort((a,b) => (a.priority.id > b.priority.id) ? 1 : ((b.priority.id > a.priority.id) ? -1 : 0))
+//     toDoArray.forEach(item => {
+//         document.querySelector('#main').innerHTML += toDoItemTemplate(item)
+//     })
+// }
 
-const renderEvents = () => {
-    toDoArray.forEach(item => {
-        setEvents(item)
-    })
-}
+// const renderEvents = () => {
+//     toDoArray.forEach(item => {
+//         setEvents(item)
+//     })
+// }
 
-const setEvents = (item) => {
-    document.getElementById(`check-${item.id}`).addEventListener('click', () => checkItem(item.id))
-    document.getElementById(`edit-${item.id}`).addEventListener('click', () =>  editItem(item.id, item.text, item.priority))
-    document.getElementById(`delete-${item.id}`).addEventListener('click', () =>  deleteItem(item.id))
-    if (item.isChecked) {
-        document.getElementById(`text-${item.id}`).classList.add('checked')
-        document.getElementById(`item-priority-${item.id}`).classList.add('priority-checked')
-        document.getElementById(`check-${item.id}`).classList.add('disabled')
-        document.getElementById(`check-${item.id}`).setAttribute('disabled',true)
-        document.getElementById(`checked-${item.id}`).innerHTML = 'Checked!'
-    }
-}
+// const setEvents = (item) => {
+//     document.getElementById(`check-${item.id}`).addEventListener('click', () => checkItem(item.id))
+//     document.getElementById(`edit-${item.id}`).addEventListener('click', () =>  editItem(item.id, item.text, item.priority))
+//     document.getElementById(`delete-${item.id}`).addEventListener('click', () =>  deleteItem(item.id))
+//     if (item.isChecked) {
+//         document.getElementById(`text-${item.id}`).classList.add('checked')
+//         document.getElementById(`item-priority-${item.id}`).classList.add('priority-checked')
+//         document.getElementById(`check-${item.id}`).classList.add('disabled')
+//         document.getElementById(`check-${item.id}`).setAttribute('disabled',true)
+//         document.getElementById(`checked-${item.id}`).innerHTML = 'Checked!'
+//     }
+// }
 
-const checkItem = (itemId) => {
-    const element = document.getElementById(`text-${itemId}`)
-    const btn = document.getElementById(`check-${itemId}`)
-    element.classList.add('checked')
-    btn.classList.add('disabled')
-    document.getElementById(`item-priority-${itemId}`).classList.add('priority-checked')
-    btn.setAttribute('disabled',true)
-    document.getElementById(`checked-${itemId}`).innerHTML = 'Checked!'
-    toDoArray[toDoArray.findIndex(({id}) => id === itemId)].isChecked = true
-    saveListOnLocalStorage()
-}
-const editItem = (itemId, text, priority) => {
-    mode = 'edit'
-    renderEditTemplate(itemId, text, priority)
-}
-const deleteItem = (itemId) => {
-    toDoArray.splice(toDoArray.findIndex(({id}) => id === itemId), 1)
-    saveListOnLocalStorage()
-    document.getElementById(`item-${itemId}`).remove()
-}
+// const checkItem = (itemId) => {
+//     const element = document.getElementById(`text-${itemId}`)
+//     const btn = document.getElementById(`check-${itemId}`)
+//     element.classList.add('checked')
+//     btn.classList.add('disabled')
+//     document.getElementById(`item-priority-${itemId}`).classList.add('priority-checked')
+//     btn.setAttribute('disabled',true)
+//     document.getElementById(`checked-${itemId}`).innerHTML = 'Checked!'
+//     toDoArray[toDoArray.findIndex(({id}) => id === itemId)].isChecked = true
+//     saveListOnLocalStorage()
+// }
+// const editItem = (itemId, text, priority) => {
+//     mode = 'edit'
+//     renderEditTemplate(itemId, text, priority)
+// }
+// const deleteItem = (itemId) => {
+//     toDoArray.splice(toDoArray.findIndex(({id}) => id === itemId), 1)
+//     saveListOnLocalStorage()
+//     document.getElementById(`item-${itemId}`).remove()
+// }
 
-const renderEditTemplate = (itemId, text, priority) => {
-    const element = document.getElementById(`item-text-${itemId}`)
-    const buttonElement = document.getElementById(`item-buttons-${itemId}`)
-    element.innerHTML = `
-            <div class="tooltip">
-                <div id="edit-priority-${itemId}" class="to-do-priority priority-${priority.id}"></div>
-                <span class="tooltiptext">${priority.title}</span>
-            </div>
-            <input type="text" id="edit-input-${itemId}" class="input" value="${text}">`
-    buttonElement.innerHTML = `<button type="button" id="edit-priority" class="change-priority-btn">Change Priority</button>
-    <button type="button" id="edit-yes" class="button green"><i class="fa fa-check"></i></button>
-    <button type="button" id="edit-no" class="button red"><i class="fa fa-times"></i></button>`
-    setEditEvents(itemId)
-}
+// const renderEditTemplate = (itemId, text, priority) => {
+//     const element = document.getElementById(`item-text-${itemId}`)
+//     const buttonElement = document.getElementById(`item-buttons-${itemId}`)
+//     element.innerHTML = `
+//             <div class="tooltip">
+//                 <div id="edit-priority-${itemId}" class="to-do-priority priority-${priority.id}"></div>
+//                 <span class="tooltiptext">${priority.title}</span>
+//             </div>
+//             <input type="text" id="edit-input-${itemId}" class="input" value="${text}">`
+//     buttonElement.innerHTML = `<button type="button" id="edit-priority" class="change-priority-btn">Change Priority</button>
+//     <button type="button" id="edit-yes" class="button green"><i class="fa fa-check"></i></button>
+//     <button type="button" id="edit-no" class="button red"><i class="fa fa-times"></i></button>`
+//     setEditEvents(itemId)
+// }
 
-const setEditEvents = (itemId) => {
-    document.getElementById(`edit-yes`).addEventListener('click', () => updateToDoItem(itemId))
-    document.getElementById(`edit-no`).addEventListener('click', () => {mode = 'add'; renderToDoList()} )
-    document.getElementById(`edit-priority`).addEventListener('click', () => {selectedId = itemId; askPriority()})
-}
+// const setEditEvents = (itemId) => {
+//     document.getElementById(`edit-yes`).addEventListener('click', () => updateToDoItem(itemId))
+//     document.getElementById(`edit-no`).addEventListener('click', () => {mode = 'add'; renderToDoList()} )
+//     document.getElementById(`edit-priority`).addEventListener('click', () => {selectedId = itemId; askPriority()})
+// }
 
-const updateToDoItem = (itemId) => {
-    editInputVal = document.getElementById(`edit-input-${itemId}`).value
-    toDoArray[toDoArray.findIndex(({id}) => id === itemId)].text = editInputVal
-    toDoArray[toDoArray.findIndex(({id}) => id === itemId)].isChecked = false
-    saveListOnLocalStorage(itemId, editInputVal)
-    mode = 'add'
-    renderToDoList()
-}
+// const updateToDoItem = (itemId) => {
+//     editInputVal = document.getElementById(`edit-input-${itemId}`).value
+//     toDoArray[toDoArray.findIndex(({id}) => id === itemId)].text = editInputVal
+//     toDoArray[toDoArray.findIndex(({id}) => id === itemId)].isChecked = false
+//     saveListOnLocalStorage(itemId, editInputVal)
+//     mode = 'add'
+//     renderToDoList()
+// }
 
 
 const init = () => {
-    toDoArray = getListOnLocalStorage()
-    id = getIdOnLocalStorage()
-    setPriority()
-    renderToDoList()
+    // toDoArray = getListOnLocalStorage()
+    // id = getIdOnLocalStorage()
+    // setPriority()
+    // renderToDoList()
+    setModalTemp('لطفا میزان اولویت را انتخاب کنید.', setPriorityTemplate)
     addBtn()
 }
 
