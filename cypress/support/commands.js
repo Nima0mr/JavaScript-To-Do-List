@@ -39,3 +39,10 @@ Cypress.Commands.add('addTasks', () => {
     cy.get('#priority-1').click()
     cy.get('.to-do-item').should('be.visible')
   });
+
+  Cypress.Commands.add('addTask', () => {
+    cy.get('#add-input').type('This is my first Task!')
+    cy.contains('button', 'Add To Do !').click()
+    cy.get('.modal-section').should('be.visible')
+    cy.get('#priority-2').click()
+  });
