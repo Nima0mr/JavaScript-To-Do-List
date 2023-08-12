@@ -1,10 +1,4 @@
 
-// sets click event for add btn !
-const addBtn = () => {
-    document.getElementById('add-btn').addEventListener('click', askPriority)
-}
-
-
 const addToDo = (priority) => {
     inputVal = document.getElementById('add-input').value
     const data = {
@@ -15,10 +9,6 @@ const addToDo = (priority) => {
     }
     toDoArray.push(data)
 }
-const askPriority = () => {
-    showModal() // this method came from ../Components/Modal/modal.js
-}
-
 
 // returns the template for pirority modal
 const setPriorityTemplate = () => {
@@ -60,7 +50,6 @@ const toDoItemTemplate = (item) => {
 // it initialize the project
 const init = () => {
     setModalTemp('لطفا میزان اولویت را انتخاب کنید.', setPriorityTemplate) // this method came from ../Components/Modal/modal.js
-    addBtn()
 }
 
 init()

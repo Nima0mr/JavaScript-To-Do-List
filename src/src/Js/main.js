@@ -49,7 +49,7 @@ const priorityEvent = (priority) => {
         document.getElementById(`edit-priority-${selectedId}`).classList.remove(`priority-3`)
         document.getElementById(`edit-priority-${selectedId}`).classList.add(`priority-${priority.id}`)
     }
-    endModal()
+    hideModal()
 }
 
 const setPriorityTemplate = () => {
