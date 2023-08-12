@@ -1,8 +1,10 @@
 /// <reference types="cypress" />
 
-describe('making addToDo functional', () => {
+import '../support/commands'
+
+describe('Tests:', () => {
     beforeEach(() => {
-        cy.visit('/')
+        cy.visit('index.html')
     })
 
     it('AddToDo btn should give an alert if empty!', () => {
@@ -19,7 +21,7 @@ describe('making addToDo functional', () => {
         cy.get('.modal-section').should('be.visible')
     })
 
-    it('should add a task to the task list after asking for priority!', () => {
+    it('should add tasks to the task list after asking for priority!', () => {
         cy.addTasks()
     })
 

@@ -1,0 +1,27 @@
+{
+	"version": 2,
+	"tester_version": 2,
+	"solution_signature": "src/js/main.js",
+	"can_submit_single_file": true,
+	"single_file_path": "src/js/main.js",
+	"packages": [
+		{
+			"name": "ToDoList",
+			"score": [
+				10,
+                30,
+                20,
+                20,
+				20
+			],
+			"tests": [
+				"Tests: AddToDo btn should give an alert if empty!",
+				"Tests: should add a ask for priority after clicking addToDo btn!",
+				"Tests: should add tasks to the task list after asking for priority!",
+                "Tests: priority element should be visible in each task and it should contain the tooltip mentioned",
+                "Tests: should sort the tasks depends on priority from High to Low"
+			],
+			"aggregator": "sum"
+		}
+	]
+}
