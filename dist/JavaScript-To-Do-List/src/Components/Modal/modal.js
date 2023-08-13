@@ -21,6 +21,6 @@ const showModal = () => {
     document.querySelector('#modal').style.display='flex'
 }
 
-const endModal = () => {
+const hideModal = () => {
     document.querySelector('#modal').style.display='none'
 }

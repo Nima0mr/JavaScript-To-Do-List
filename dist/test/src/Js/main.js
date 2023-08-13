@@ -1,6 +1,8 @@
 
 const addToDo = (priority) => {
     inputVal = document.getElementById('add-input').value
+
+    // this is the data that we use for toDoItemTemplate()
     const data = {
         id: id,
         text: inputVal,
