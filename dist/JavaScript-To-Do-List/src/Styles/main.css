@@ -1,0 +1,237 @@
+*, *::after, *::before {
+    box-sizing: border-box;
+}
+
+:root {
+    --shadow-color: lightgrey;
+    --background-color: #f4f4f4;
+    --main-color: #7bc677;
+    --main-color-hover: #d2f7d0;
+    --red: #e84f4f;
+    --red-hover: #ffbcbc;
+    --yellow: #dfd04d;
+    --yellow-hover: #e1da97;
+    --green: #7bc677;
+    --green-hover: #d2f7d0;
+    --blue: #4663db;
+    --blue-hover: #bccdff;
+    --text-color: #343439;
+}
+
+body {
+    background-color: var(--background-color);
+}
+
+.button {
+    background-color: white;
+    border: none;
+    padding: 6px 8px;
+    font-size: 20px;
+    cursor: pointer;
+    border-radius: 50%;
+    margin-left: 8px;
+}
+
+.green {
+    color: var(--green);
+}
+.green:hover {
+    background-color: var(--green-hover);
+}
+
+.blue {
+    color: var(--blue);
+}
+.blue:hover {
+    background-color: var(--blue-hover);
+}
+
+.red {
+    color: var(--red);
+}
+.red:hover {
+    background-color: var(--red-hover);
+}
+
+.disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+.to-do-list-section {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.to-do-list-section .to-do-list-container {
+    background-color: white;
+    width: 1200px;
+    padding: 24px;
+    box-shadow: 1px 9px 17px 8px var(--shadow-color);
+    border-radius: 10px;
+    margin-bottom: 24px;
+}
+
+.add-to-do {
+    height: 50px;
+    margin-bottom: 24px;
+    display: flex;
+    box-shadow: 0 9px 17px var(--shadow-color);
+}
+
+.add-to-do .add-content {
+    font-size: 16px;
+    border: 2px solid var(--main-color);
+    background-color: white;
+}
+
+.add-to-do .input {
+    height: 100%;
+    width: 80%;
+    font-family: Arial ,Helvetica, sans-serif, "B Nazanin";
+    color: var(--text-color);
+    font-size: 16px;
+    border-radius: 5px 0 0 5px;
+    border-right: 0;
+    outline: 0;
+}
+
+.add-to-do .add-btn {
+    height: 100%;
+    width: 20%;
+    cursor: pointer;
+    color: var(--main-color);
+    background-color: var(--background-color);
+    border-radius: 0 5px 5px 0;
+    border-left: 0;
+}
+
+.add-to-do .add-btn:hover {
+    background-color: #cff5cd;
+}
+
+.to-do-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px 0;
+}
+
+.to-do-list .to-do-item {
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid var(--main-color);
+    border-radius: 5pX;
+    box-shadow: 1px 4px 10px var(--shadow-color);
+}
+
+.to-do-list .to-do-item .input {
+    height: 28px;
+    width: 600px;
+    font-size: 16px;
+    border: 1px solid var(--main-color);
+    border-radius: 5px;
+    font-family: Arial ,Helvetica, sans-serif, "B Nazanin";
+    color: var(--text-color);
+}
+
+.to-do-list .to-do-item .input:focus {
+    outline: 2px solid var(--main-color);
+}
+
+.to-do-list .to-do-item .to-do-text {
+    font-size: 24px;
+    font-weight: 500;
+    font-family: Arial ,Helvetica, sans-serif, "B Nazanin";
+    color: var(--text-color);
+}
+
+.priorities {
+    display: flex;
+    flex-direction: row-reverse;
+    width: 300px;
+    height: 50px;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+}
+
+.item-text {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.to-do-priority {
+    border-radius: 50%;
+    width: 20px !important;
+    height: 20px !important;
+}
+
+.priority-1 {
+    width: 35px;
+    height: 35px;
+    background-color: var(--red);
+}
+
+.priority-2 {
+    width: 35px;
+    height: 35px;
+    background-color: var(--yellow);
+}
+
+.priority-3 {
+    width: 35px;
+    height: 35px;
+    background-color: var(--blue);
+}
+
+.priority-checked.priority-1 {
+    background-color: var(--red-hover);
+}
+.priority-checked.priority-2 {
+    background-color: var(--yellow-hover);
+}
+.priority-checked.priority-3 {
+    background-color: var(--blue-hover);
+}
+
+.priorities .priority-1:hover {
+    background-color: var(--red-hover);
+}
+.priorities .priority-2:hover {
+    background-color: var(--yellow-hover);
+}
+.priorities .priority-3:hover {
+    background-color: var(--blue-hover);
+}
+
+.change-priority-btn {
+    border: 0;
+    background: var(--blue);
+    color: white;
+    padding: 8px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+.change-priority-btn:hover {
+    background: var(--blue-hover);
+}
+
+.checked {
+    position: relative;
+    color: grey !important;
+}
+.checked:before {
+    position: absolute;
+    color: grey;
+    content: "";
+    left: 0;
+    top: 55%;
+    right: 0;
+    border-top: 1px solid;
+    border-color: inherit;
+}

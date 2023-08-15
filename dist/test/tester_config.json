@@ -1,0 +1,25 @@
+{
+	"version": 2,
+	"tester_version": 2,
+	"solution_signature": "src/Js/main.js",
+	"can_submit_single_file": true,
+	"single_file_path": "src/Js/main.js",
+	"packages": [
+		{
+			"name": "ToDoList Part 2",
+			"score": [
+                30,
+                40,
+                20,
+                20
+			],
+			"tests": [
+				"ToDoList Part 2: checking for text and priority and check btn styles after clicking on check btn!",
+				"ToDoList Part 2: checking edit functions while making the text edited!",
+				"ToDoList Part 2: check delete functionality.",
+                "ToDoList Part 2: check if variables are stored correctly in localStorage"
+			],
+			"aggregator": "sum"
+		}
+	]
+}
