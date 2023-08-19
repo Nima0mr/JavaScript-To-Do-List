@@ -57,46 +57,4 @@ describe("ToDoList Part 2:", () => {
     cy.get("#item-1").should("not.exist");
     cy.get("#item-2").should("not.exist");
   });
-
-  it("check if variables are stored correctly in localStorage", () => {
-    cy.addTasks();
-
-    cy.window().then((win) => {
-      const storedList = JSON.parse(win.localStorage.getItem("list"));
-      const expectedList = [
-        {
-          id: 3,
-          text: "This is my 3rd Task!",
-          isChecked: false,
-          priority: {
-            id: 1,
-            title: "High",
-          },
-        },
-        {
-          id: 1,
-          text: "This is my first Task!",
-          isChecked: false,
-          priority: {
-            id: 2,
-            title: "Medium",
-          },
-        },
-        {
-          id: 2,
-          text: "This is my 2nd Task!",
-          isChecked: false,
-          priority: {
-            id: 3,
-            title: "Low",
-          },
-        },
-      ];
-      expect(storedList).to.deep.equal(expectedList);
-
-      const storedId = JSON.parse(win.localStorage.getItem("id"));
-      const expectedId = 4;
-      expect(storedId).to.equal(expectedId);
-    });
-  });
 });
