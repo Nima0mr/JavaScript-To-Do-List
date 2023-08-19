@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/Nima0mr/JavaScript-To-Do-List#readme",
   "devDependencies": {
-    "cypress": "^4.5.0"
+    "cypress": "^4.5.0",
+    "typescript": "^5.1.6"
   }
 }

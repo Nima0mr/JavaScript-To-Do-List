@@ -1,9 +1,9 @@
 {
 	"version": 2,
 	"tester_version": 2,
-	"solution_signature": "src/Js/main.js",
+	"solution_signature": "dist/Js/main.js",
 	"can_submit_single_file": true,
-	"single_file_path": "src/Js/main.js",
+	"single_file_path": "dist/Js/main.js",
 	"packages": [
 		{
 			"name": "ToDoList",

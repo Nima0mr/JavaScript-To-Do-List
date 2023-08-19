@@ -1,17 +1,15 @@
-
+"use strict";
 const addToDo = (priority) => {
-    inputVal = document.getElementById('add-input').value
-
+    data.inputVal = document.getElementById('add-input').value;
     // this is the data that we use for toDoItemTemplate()
-    const data = {
-        id: id,
-        text: inputVal,
+    const toDoData = {
+        id: data.id,
+        text: data.inputVal,
         isChecked: false,
         priority: priority
-    }
-    toDoArray.push(data)
-}
-
+    };
+    data.toDoArray.push(toDoData);
+};
 // returns the template for pirority modal
 const setPriorityTemplate = () => {
     return `<div class="priorities">
@@ -27,9 +25,8 @@ const setPriorityTemplate = () => {
         <button id="priority-3" class="button priority-3"></button>
         <span class="tooltiptext">low</span>
     </div>
-   </div>`
-}
-
+   </div>`;
+};
 // returns the template for a todo list item
 const toDoItemTemplate = (item) => {
     return `<div class="to-do-item" id="item-${item.id}">
@@ -45,13 +42,10 @@ const toDoItemTemplate = (item) => {
             <div class="tooltip"><button type="button" id="edit-${item.id}" class="button blue"><i class="fa fa-pencil-square-o"></i></button><span class="tooltiptext">Edit</span></div>
             <div class="tooltip"><button type="button" id="delete-${item.id}" class="button red"><i class="fa fa-trash-o"></i></button><span class="tooltiptext">Delete</span></div>
         </div>
-    </div>`
-
-}
-
+    </div>`;
+};
 // it initialize the project
 const init = () => {
-    setModalTemp('لطفا میزان اولویت را انتخاب کنید.', setPriorityTemplate) // this method came from ../Components/Modal/modal.js
-}
-
-init()
+    setModalTemp('لطفا میزان اولویت را انتخاب کنید.', setPriorityTemplate); // this method came from ../Components/Modal/modal.js
+};
+init();

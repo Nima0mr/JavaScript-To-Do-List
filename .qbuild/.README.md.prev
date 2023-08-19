@@ -13,18 +13,26 @@
 
 ```
 JavaScript-To-Do-List
+├── dist
+│   ├── Components
+│   │   └── Modal
+│   │       └── modal.js
+│   └── Js
+│       ├── data.js
+│       └── main.js
 ├── src
 │   ├── Components
 │   │   └── Modal
 │   │       ├── modal.css
-│   │       └── modal.js
+│   │       └── modal.ts
 │   ├── Js
-│   │   ├── data.js
-│   │   └── main.js
+│   │   ├── data.ts
+│   │   └── main.ts
 │   └── Styles
 │       ├── main.css
 │       └── toolTip.css
-└── index.html
+├── index.html
+└── tsconfig.json
 ```
 
 
