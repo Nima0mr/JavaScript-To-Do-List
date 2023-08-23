@@ -56,6 +56,7 @@ const priorityEvent = (priority) => {
         (document.getElementById(`edit-priority-${data.selectedId}`)).classList.remove(`priority-2`);
         (document.getElementById(`edit-priority-${data.selectedId}`)).classList.remove(`priority-3`);
         (document.getElementById(`edit-priority-${data.selectedId}`)).classList.add(`priority-${priority.id}`);
+        (document.querySelector(`#edit-priority-${data.selectedId} .tooltiptext`)).innerText = priority.title;
     }
     hideModal();
 };
@@ -99,8 +100,9 @@ const toDoListItemTemplate = (item) => {
     return `<div class="to-do-item" id="item-${item.id}">
         <div id="item-text-${item.id}" class="item-text">
             <div class="tooltip">
-                <div id="item-priority-${item.id}" class="to-do-priority priority-${item.priority.id}"></div>
-                <span class="tooltiptext">${item.priority.title}</span>
+                <div id="item-priority-${item.id}" class="to-do-priority priority-${item.priority.id}">
+                    <span class="tooltiptext">${item.priority.title}</span>
+                </div>
             </div>
             <span class="to-do-text" id="text-${item.id}">${item.text}</span>
         </div>
@@ -184,9 +186,9 @@ const renderEditTemplate = (itemId, text, priority) => {
     if (element) {
         element.innerHTML = `
             <div class="tooltip">
-                <div id="edit-priority-${itemId}" class="to-do-priority priority-${priority.id}"></div>
-                <span class="tooltiptext">${priority.title}</span>
-            </div>
+                <div id="edit-priority-${itemId}" class="to-do-priority priority-${priority.id}">
+                    <span class="tooltiptext">${priority.title}</span></div>
+                </div>
             <input type="text" id="edit-input-${itemId}" class="input" value="${text}">`;
     }
     if (buttonElement) {
