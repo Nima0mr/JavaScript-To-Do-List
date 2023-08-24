@@ -32,6 +32,7 @@ JavaScript-To-Do-List
 │       ├── main.css
 │       └── toolTip.css
 ├── index.html
+├── package.json
 └── tsconfig.json
 ```
 

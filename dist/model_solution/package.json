@@ -1,0 +1,23 @@
+{
+  "name": "javascript-to-do-list",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nima0mr/JavaScript-To-Do-List.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Nima0mr/JavaScript-To-Do-List/issues"
+  },
+  "homepage": "https://github.com/Nima0mr/JavaScript-To-Do-List#readme",
+  "devDependencies": {
+    "cypress": "^4.5.0",
+    "typescript": "^5.1.6"
+  }
+}
