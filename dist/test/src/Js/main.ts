@@ -31,7 +31,6 @@ const addToDoItem = (priority: priority) => {
     data.toDoArray.push(toDoData);
     renderToDoList();
     data.id++;
-    saveListOnLocalStorage();
 };
 
 const askPriority = () => {
@@ -71,6 +70,7 @@ const priorityEvent = (priority: priority) => {
         addToDoItem(priority);
         (<HTMLInputElement>document.getElementById('add-input')).value = '';
     } else if (mode === 'edit') {
+        // priority events for edit mode here <-----------------------------
         data.toDoArray[
             data.toDoArray.findIndex(({ id }:ToDoData) => id === data.selectedId)
         ].priority = priority;
@@ -108,29 +108,6 @@ const PrioritiesTemplate = () => {
         <span class="tooltiptext">low</span>
     </div>
    </div>`;
-};
-
-const saveListOnLocalStorage = () => {
-    localStorage.setItem('list', JSON.stringify(data.toDoArray));
-    localStorage.setItem('id', JSON.stringify(data.id));
-};
-
-const getListOnLocalStorage = () => {
-    let a: any = localStorage.getItem('list');
-    a = JSON.parse(a);
-    if (a === null) {
-        a = [];
-    }
-    return a;
-};
-
-const getIdOnLocalStorage = () => {
-    let a: any = localStorage.getItem('id');
-    a = JSON.parse(a);
-    if (a === null) {
-        a = 1;
-    }
-    return a;
 };
 
 const toDoListItemTemplate = (item: ToDoData) => {
@@ -195,28 +172,10 @@ const setEvents = (item: ToDoData) => {
             deleteItem(item.id)
         );
     }
-    if (item.isChecked) {
-        (document.getElementById(`text-${item.id}`) as HTMLElement).classList.add('checked');
-        (document.getElementById(`item-priority-${item.id}`) as HTMLElement).classList.add('priority-checked');
-        (document.getElementById(`check-${item.id}`) as HTMLElement).classList.add('disabled');
-        (document.getElementById(`check-${item.id}`) as HTMLElement).setAttribute('disabled', 'true');
-        (document.getElementById(`checked-${item.id}`) as HTMLElement).innerHTML = 'Checked!';
-    }
 };
 
 const checkItem = (itemId: number): void => {
-    const element = document.getElementById(`text-${itemId}`);
-    const btn = document.getElementById(`check-${itemId}`);
-    element?.classList.add('checked');
-    btn?.classList.add('disabled');
-    document.getElementById(`item-priority-${itemId}`)?.classList.add('priority-checked');
-    btn?.setAttribute('disabled', 'true');
-    const checkedBtn = document.getElementById(`checked-${itemId}`);
-    if (checkedBtn !== null) {
-        checkedBtn.innerHTML = 'Checked!';
-    }
-    data.toDoArray[data.toDoArray.findIndex((item) => item.id === itemId)].isChecked = true;
-    saveListOnLocalStorage();
+    // your code for check btn here ---------------------------------------->
 };
 
 const editItem = (itemId: number, text: string, priority: priority): void => {
@@ -225,9 +184,7 @@ const editItem = (itemId: number, text: string, priority: priority): void => {
 };
 
 const deleteItem = (itemId: number): void => {
-    data.toDoArray.splice(data.toDoArray.findIndex(({ id }) => id === itemId), 1);
-    saveListOnLocalStorage();
-    document.getElementById(`item-${itemId}`)?.remove();
+    // your code for check btn here ---------------------------------------->
 };
 
 const renderEditTemplate = (itemId: number, text: string, priority: priority): void => {
@@ -250,21 +207,7 @@ const renderEditTemplate = (itemId: number, text: string, priority: priority): v
 };
 
 const setEditEvents = (itemId: number): void => {
-    const editYesButton = document.getElementById(`edit-yes`);
-    const editNoButton = document.getElementById(`edit-no`);
-    const editPriorityButton = document.getElementById(`edit-priority`);
-
-    if (editYesButton) {
-        editYesButton.addEventListener('click', () => updateToDoItem(itemId));
-    }
-
-    if (editNoButton) {
-        editNoButton.addEventListener('click', () => { mode = 'add'; renderToDoList(); });
-    }
-
-    if (editPriorityButton) {
-        editPriorityButton.addEventListener('click', () => { data.selectedId = itemId; askPriority(); });
-    }
+     // your code for edit btn events here ---------------------------------------->
 };
 
 const updateToDoItem = (itemId: number): void => {
@@ -275,17 +218,14 @@ const updateToDoItem = (itemId: number): void => {
         data.toDoArray[itemIndex].text = data.editInputVal;
         data.toDoArray[itemIndex].isChecked = false;
     }
-    saveListOnLocalStorage();
     mode = 'add';
     renderToDoList();
 };
 
-const initializeApp = (): void => {
-    data.toDoArray = getListOnLocalStorage();
-    data.id = getIdOnLocalStorage();
+const init = (): void => {
     setPriority();
     renderToDoList();
     addBtn();
 };
 
-initializeApp();
+init();
