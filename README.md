@@ -13,6 +13,13 @@
 
 ```
 JavaScript-To-Do-List
+├── dist
+│   ├── Components
+│   │   └── Modal
+│   │       └── modal.js
+│   └── Js
+│       ├── data.js
+│       └── main.js
 ├── src
 │   ├── Components
 │   │   └── Modal

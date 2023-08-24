@@ -1,5 +1,4 @@
 cypress/
-dist/
 cypress.json
 package.json
 package.lock.json
