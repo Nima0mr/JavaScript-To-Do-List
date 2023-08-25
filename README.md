@@ -13,16 +13,6 @@
 
 ```
 JavaScript-To-Do-List
-├── cypress
-│   ├── fixtures
-│   │   └── example.json
-│   ├── integration
-│   │   └── sampleTest.spec.js
-│   ├── plugins
-│   │   └── index.js
-│   └── support
-│       ├── commands.js
-│       └── e2e.js
 ├── dist
 │   ├── Components
 │   │   └── Modal
@@ -30,6 +20,8 @@ JavaScript-To-Do-List
 │   └── Js
 │       ├── data.js
 │       └── main.js
+├── sample
+│   └── sampleTest.spec.js
 ├── src
 │   ├── Components
 │   │   └── Modal

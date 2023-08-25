@@ -1,6 +1,6 @@
 /// <reference types="cypress" />
 
-import "../support/commands";
+import "../cypress/support/commands";
 
 describe("ToDoList Part 2:", () => {
   beforeEach(() => {
