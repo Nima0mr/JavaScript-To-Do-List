@@ -1,0 +1,3 @@
+cypress/integration/sampleTest.spec.js
+cypress.json
+package.lock.json
