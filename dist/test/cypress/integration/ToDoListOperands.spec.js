@@ -12,7 +12,10 @@ describe("ToDoList Part 2:", () => {
     cy.get("button#check-1").click();
     cy.get(".item-text").find("span.checked");
     cy.get(".tooltip").find(".priority-checked");
-    cy.get("button.green[disabled='true']");
+    cy.get("button.green").should(($button) => {
+      const isDisabled = $button.is("[disabled='true']") || $button.is("[disabled='']");
+      expect(isDisabled).to.be.true;
+    });
     cy.get("button.disabled");
   });
 
