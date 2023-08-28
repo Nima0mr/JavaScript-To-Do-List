@@ -20,8 +20,6 @@ JavaScript-To-Do-List
 │   └── Js
 │       ├── data.js
 │       └── main.js
-├── sample
-│   └── sampleTest.spec.js
 ├── src
 │   ├── Components
 │   │   └── Modal
